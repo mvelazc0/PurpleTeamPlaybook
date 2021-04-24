@@ -1,0 +1,69 @@
+{
+  "type": "local",
+  "sleep": 5,
+  "playbooks": [
+	{
+      "name": "Domain Group Enumeration Using Command line - All",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1069.002",
+		  "variation": 1,
+        }
+      ]
+    },
+	{
+      "name": "Domain Group Enumeration Using Command line - Defined groups",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1069.002",
+		  "variation": 1,
+		  "groups": ["Domain Admins", "Enterprise Admins"],
+        }
+      ]
+    },
+	{
+      "name": "Domain Group Enumeration Using PowerShell",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1069.002",
+		  "variation": 2,
+        }
+      ]
+    },
+	{
+      "name": "Domain Group Enumeration Using PowerShell and defined groups",
+	  "enabled": true,
+      "tasks": [
+        {
+          "technique_id": "T1069.002",
+		  "variation": 2,
+		  "groups": ["Hacklabz Workstation Admins"],
+        }
+      ]
+    },
+	{
+      "name": "Domain Group Enumeration Using LDAP",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1069.002",
+		  "variation": 3,
+        }
+      ]
+    },
+	{
+      "name": "Domain Group Enumeration Using LDAP and defined groups",
+	  "enabled": true,
+      "tasks": [
+        {
+          "technique_id": "T1069.002",
+		  "variation": 3,
+		  "groups": ["Hacklabz Workstation Admins"],
+        }
+      ]
+    }
+  ]
+}

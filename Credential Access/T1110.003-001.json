@@ -1,0 +1,102 @@
+{
+  "type": "local",
+  "sleep": 1,
+  "playbooks": [
+    {
+      "name": "Kerberos Password Spraying with defined accounts",
+	  "enabled": true,
+      "tasks": [
+        {
+          "technique_id": "T1110.003",
+		  "spray_password": "S1mpson123_brt",
+		  "variation": 1,
+		  "user_target_type": 1,
+		  "user_targets" : ["bsimpson", "hsimpson", "lsimpson"] 
+        }
+      ]
+    },
+	{
+      "name": "Kerberos Password Spraying with random domain users",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1110.003",
+		  "spray_password": "Spring2021",
+		  "variation": 1,
+		  "user_target_type": 2,
+		  "user_target_total": 5,        
+		}
+      ]
+    },
+	{
+      "name": "Kerberos Password Spraying with random domain users with a sleep time of 1 min",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1110.003",
+		  "spray_password": "Spring2021",
+		  "variation": 1,
+		  "user_target_type": 2,
+		  "user_target_total": 5,   
+		  "task_sleep": 20,   
+		  
+		}
+      ]
+    },
+	{
+      "name": "Kerberos Password Spraying with randomly generated users",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1110.003",
+		  "spray_password": "Spring2021",
+		  "variation": 1,
+		  "user_target_type": 3,
+		  "user_target_total": 10,        
+		}
+      ]
+    },
+	{
+      "name": "NTLM Password Spraying with defined accounts",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1110.003",
+		  "spray_password": "Spring2021",
+		  "variation": 1,
+		  "protocol": "NTLM",
+		  "user_target_type": 1,
+		  "user_targets" : ["bsimpson", "hsimpson", "msimpson", "testing"] 
+        }
+      ]
+    },
+	{
+      "name": "NTLM Password Spraying with random domain users",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1110.003",
+		  "spray_password": "Spring2021",
+		  "variation": 1,
+		  "protocol": "NTLM",
+		  "user_target_type": 2,
+		  "user_target_total": 5,        
+		}
+      ]
+    },
+	{
+      "name": "NTLM Password Spraying with randomly generated users",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1110.003",
+		  "spray_password": "Spring2021",
+		  "variation": 1,
+		  "protocol": "NTLM",
+		  "user_target_type": 3,
+		  "user_target_total": 10,        
+		}
+      ]
+    }
+  ]
+}

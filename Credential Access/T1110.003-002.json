@@ -1,0 +1,91 @@
+{
+	"type": "local",
+	"sleep": 1,
+	"playbooks": [
+		{
+			"name": "Remote password spray attack with defined users against one a defined host",
+		    "enabled": false,
+			"tasks": [
+				{
+					"technique_id": "T1110.003",
+					"variation": 2,
+					"spray_password": "Spring2021",
+					"protocol": "NTLM",
+			
+					"user_target_type": 1,
+					"host_target_type": 1,
+					"user_targets": ["nflanders", "bsimpson", "hsimpson"],
+					"host_targets": ["win10-2"],
+				}
+			]
+		},
+		{
+			"name": "Remote password spray attack with random users against defined host",
+		    "enabled": false,
+			"tasks": [
+				{
+					"technique_id": "T1110.003",
+					"spray_password": "Spring2021",
+					"variation": 2,
+					"protocol": "NTLM",
+
+					"user_target_type": 2,
+					"user_target_total": 5,
+					"host_target_type": 1,
+					"host_targets": ["win10-2"],
+				}
+			]
+		},
+		{
+			"name": "Remote password spray attack with random users against random host",
+		    "enabled": false,
+			"tasks": [
+				{
+					"technique_id": "T1110.003",
+					"spray_password": "Spring2021",
+					"variation": 2,
+					"protocol": "NTLM",
+
+					"user_target_type": 2,
+					"user_target_total": 5,
+					"host_target_type": 2,
+				}
+			]
+		},
+		{
+			"name": "Distributed remote password spray attack with random users against random hosts",
+		    "enabled": true,
+			"tasks": [
+				{
+					"technique_id": "T1110.003",
+					"spray_password": "Spring2021",
+					"variation": 2,
+					"protocol": "NTLM",
+					"task_sleep": 5,
+
+					"user_target_type": 2,
+					"user_target_total": 7,
+					"host_target_type": 3,
+					"host_targets": ["win10-2", "win10-3", "win2012-1"],
+				}
+			]
+		},
+		{
+			"name": "Distributed remote password spray attack with random users against random hosts",
+		    "enabled": false,
+			"tasks": [
+				{
+					"technique_id": "T1110.003",
+					"spray_password": "Spring2021",
+					"variation": 2,
+					"protocol": "NTLM",
+
+					"user_target_type": 2,
+					"user_target_total": 7,
+					"host_target_type": 4,
+					"host_target_total": 7,
+				}
+			]
+		}
+	]
+}

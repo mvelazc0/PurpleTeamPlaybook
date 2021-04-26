@@ -1,0 +1,64 @@
+{
+  "type": "local",
+  "sleep": 5,
+  "playbooks": [
+  	{
+      "name": "Local Network Share Discovery using the command line",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1135",
+		  "variation": 1,
+        }
+      ]
+    },
+	{
+      "name": "Remote Network Share Discovery against defined hosts using the command line",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1135",
+		  "variation": 2,
+		  "host_target_type": 1,
+		  "host_targets": ["dc01"],
+        }
+      ]
+    },
+	{
+      "name": "Remote Network Share Discovery against random hosts using the command line",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1135",
+		  "variation": 2,
+		  "host_target_type": 2,
+		  "host_target_total" : 10,
+        }
+      ]
+    },
+	{
+      "name": "Remote Network Share Discovery against defined hosts using the API",
+	  "enabled": false,
+      "tasks": [
+        {
+          "technique_id": "T1135",
+		  "variation": 3,
+		  "host_target_type": 1,
+		  "host_targets": ["dc01"],
+        }
+      ]
+    },
+	{
+      "name": "Remote Network Share Discovery against random hosts using the API",
+	  "enabled": true,
+      "tasks": [
+        {
+          "technique_id": "T1135",
+		  "variation": 3,
+		  "host_target_type": 2,
+		  "host_target_total" : 10,
+        }
+      ]
+    }
+  ]
+}

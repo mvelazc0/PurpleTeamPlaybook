@@ -1,0 +1,38 @@
+{
+    "type": "local",
+    "sleep": 5,
+    "playbooks": [
+        {
+            "name": "Active Directory Discovery Simulation Playbook - Command Line",
+            "enabled": true,
+            "playbook_sleep": 3,
+            "tasks": [
+                {
+                    "technique_id": "T1033",
+                    "variation": 1,
+                    "technique_name": "System User Discovery"
+                },
+                {
+                    "technique_id": "T1018",
+                    "variation": 1,
+                    "technique_name": "Remote System Discovery"
+                },
+                {
+                    "technique_id": "T1482",
+                    "variation": 1,
+                    "technique_name": "Domain Trust Discovery"
+                },
+                {
+                    "technique_id": "T1087.001",
+                    "variation": 1,
+                    "technique_name": "Local Account Discovery"
+                },
+                {
+                    "technique_id": "T1069.002",
+                    "variation": 1,
+                    "technique_name": "Domain Group Discovery"
+                }
+            ]
+        }
+    ]
+}

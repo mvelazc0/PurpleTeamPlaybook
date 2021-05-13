@@ -1,0 +1,27 @@
+{
+    "type": "local",
+    "sleep": 5,
+    "playbooks": [
+        {
+            "name": "Active Directory Discovery Simulation Playbook - LDAP",
+            "enabled": true,
+            "playbook_sleep": 3,
+            "tasks": [
+                {
+                    "technique_id": "T1087.002",
+                    "variation": 3,
+                    "technique_name": "Domain Account Discovery"
+                },
+                {
+                    "technique_id": "T1069.002",
+                    "variation": 2,
+                    "technique_name": "Domain Account Discovery",
+                    "groups": [
+                        "DB Administration",
+                        "Exchange Adm"
+                    ]
+                }
+            ]
+        }
+    ]
+}

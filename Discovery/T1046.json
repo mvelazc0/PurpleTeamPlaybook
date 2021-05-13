@@ -2,37 +2,42 @@
   "type": "local",
   "sleep": 5,
   "playbooks": [
-	{
+    {
       "name": "Network Service Scanning Against a defined host or hosts",
-	  "enabled": false,
+      "enabled": false,
       "tasks": [
         {
           "technique_id": "T1046",
-		  "host_target_type": 1,
-		  "host_targets": ["dc01"],
+          "host_target_type": 1,
+          "host_targets": [
+            "dc01"
+          ]
         }
       ]
     },
-	{
+    {
       "name": "Network Service Scanning Against random host or hosts",
-	  "enabled": false,
+      "enabled": false,
       "tasks": [
         {
           "technique_id": "T1046",
-		  "host_target_type": 2,
-		  "host_target_total": 5,
+          "host_target_type": 2,
+          "host_target_total": 5
         }
       ]
     },
-	{
+    {
       "name": "Network Service Scanning Against random host or hosts using defined ports",
-	  "enabled": true,
+      "enabled": true,
       "tasks": [
         {
           "technique_id": "T1046",
-		  "host_target_type": 2,
-		  "host_target_total": 5,
-		  "ports": [3389, 8080],
+          "host_target_type": 2,
+          "host_target_total": 5,
+          "ports": [
+            3389,
+            8080
+          ]
         }
       ]
     }

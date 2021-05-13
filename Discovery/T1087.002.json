@@ -2,33 +2,33 @@
   "type": "local",
   "sleep": 5,
   "playbooks": [
-  {
+    {
       "name": "Domain User Enumeration Using Command line",
-	  "enabled": true,
+      "enabled": true,
       "tasks": [
         {
           "technique_id": "T1087.002",
-		  "variation": 1,
+          "variation": 1
         }
       ]
     },
-	{
+    {
       "name": "Domain User Enumeration Using PowerShell",
-	  "enabled": true,
+      "enabled": true,
       "tasks": [
         {
           "technique_id": "T1087.002",
-		  "variation": 2,
+          "variation": 2
         }
       ]
     },
     {
       "name": "Domain User Enumeration Using LDAP",
-	  "enabled": true,
+      "enabled": true,
       "tasks": [
         {
           "technique_id": "T1087.002",
-		  "variation": 3,
+          "variation": 3
         }
       ]
     }

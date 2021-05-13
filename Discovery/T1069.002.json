@@ -2,67 +2,75 @@
   "type": "local",
   "sleep": 5,
   "playbooks": [
-	{
+    {
       "name": "Domain Group Enumeration Using Command line - Default",
-	  "enabled": false,
+      "enabled": false,
       "tasks": [
         {
           "technique_id": "T1069.002",
-		  "variation": 1,
+          "variation": 1
         }
       ]
     },
-	{
+    {
       "name": "Domain Group Enumeration Using Command line - Defined groups",
-	  "enabled": false,
+      "enabled": false,
       "tasks": [
         {
           "technique_id": "T1069.002",
-		  "variation": 1,
-		  "groups": ["Domain Admins", "Enterprise Admins"],
+          "variation": 1,
+          "groups": [
+            "Domain Admins",
+            "Enterprise Admins"
+          ]
         }
       ]
     },
-	{
+    {
       "name": "Domain Group Enumeration Using PowerShell",
-	  "enabled": false,
+      "enabled": false,
       "tasks": [
         {
           "technique_id": "T1069.002",
-		  "variation": 2,
-
+          "variation": 2
         }
       ]
     },
-	{
+    {
       "name": "Domain Group Enumeration Using PowerShell - Defined groups",
-	  "enabled": false,
+      "enabled": false,
       "tasks": [
         {
           "technique_id": "T1069.002",
-		  "variation": 2,
-		  "groups": ["Domain Admins", "Enterprise Admins"],
+          "variation": 2,
+          "groups": [
+            "Domain Admins",
+            "Enterprise Admins"
+          ]
         }
       ]
     },
-	{
+    {
       "name": "Domain Group Enumeration Using LDAP - Default",
-	  "enabled": false,
+      "enabled": false,
       "tasks": [
         {
           "technique_id": "T1069.002",
-		  "variation": 3,
+          "variation": 3
         }
       ]
     },
-	{
+    {
       "name": "Domain Group Enumeration Using LDAP - Defined groups",
-	  "enabled": false,
+      "enabled": false,
       "tasks": [
         {
           "technique_id": "T1069.002",
-		  "variation": 3,
-		  "groups": ["Domain Admins", "Enterprise Admins"],
+          "variation": 3,
+          "groups": [
+            "Domain Admins",
+            "Enterprise Admins"
+          ]
         }
       ]
     }

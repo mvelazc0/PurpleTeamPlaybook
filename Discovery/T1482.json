@@ -1,0 +1,27 @@
+{
+  "type": "local",
+  "sleep": 5,
+  "playbooks": [
+  	{
+      "name": "Domain Trust Discovery using the command line",
+	  "enabled": true,
+      "tasks": [
+        {
+          "technique_id": "T1482",
+		  "variation": "1",
+        }
+      ]
+    },
+	{
+      "name": "Domain Trust Discovery using PowerShell",
+	  "enabled": true,
+      "tasks": [
+        {
+          "technique_id": "T1482",
+		  "variation": "2",
+        }
+      ]
+    }
+	
+  ]
+}

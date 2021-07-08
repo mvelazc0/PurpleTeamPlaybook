@@ -1,0 +1,33 @@
+{
+    "type": "local",
+    "playbooks": [
+      {
+        "name": "Execute code remotely using WMI on specified hosts",
+        "enabled": false,
+        "playbook_sleep": 3,
+        "tasks": [       
+          {
+            "technique_id": "T1047",
+            "variation": 1,
+            "host_target_type": 1,
+            "command" : "C:\\Windows\\System32\\calc.exe",
+            "host_targets": ["dc01", "win10-2"]            
+          }
+        ]
+      },
+      {
+        "name": "Execute code remotely using WMI on random hosts",
+        "enabled": false,
+        "playbook_sleep": 3,
+        "tasks": [       
+          {
+			"technique_id": "T1047",
+			"variation": 1,
+            "command" : "C:\\Windows\\System32\\notepad.exe",
+            "host_target_type": 2,
+            "host_target_total": 5
+          }
+        ]
+      }
+    ]
+  }

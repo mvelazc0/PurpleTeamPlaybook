@@ -1,0 +1,33 @@
+{
+    "type": "local",
+    "playbooks": [
+      {
+        "name": "Execute code remotely using WinRM on specified hosts",
+        "enabled": false,
+        "playbook_sleep": 3,
+        "tasks": [       
+          {
+            "technique_id": "T1021.006",
+            "variation": 1,
+            "host_target_type": 1,
+            "command" : "C:\\Windows\\System32\\calc.exe",
+            "host_targets": ["dc01", "192.168.121.2"]            
+          }
+        ]
+      },
+      {
+        "name": "Execute code remotely using WinRM on random hosts",
+        "enabled": true,
+        "playbook_sleep": 3,
+        "tasks": [       
+          {
+            "technique_id": "T1021.006",
+            "variation": 1,
+            "command" : "C:\\Windows\\System32\\notepad.exe",
+            "host_target_type": 2,
+            "host_target_total": 5
+          }
+        ]
+      }
+    ]
+  }

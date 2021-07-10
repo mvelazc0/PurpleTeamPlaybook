@@ -1,0 +1,37 @@
+{
+    "type": "local",
+    "playbooks": [
+      {
+        "name": "Create remote scheduled task on specified hosts using schtasks.exe",
+        "enabled": false,
+        "playbook_sleep": 3,
+        "tasks": [       
+          {
+            "technique_id": "T1053",
+            "variation": 1,
+			"cleanup": "true",
+			"taskName": "Legit Scheduled Task",
+            "taskPath" : "C:\\Windows\\System32\\calc.exe",
+			"host_target_type": 1,
+            "host_targets": ["win10-2"]            
+          }
+        ]
+      },
+      {
+        "name": "Create remote scheduled task on random hosts using schtasks.exe",
+        "enabled": false,
+        "playbook_sleep": 3,
+        "tasks": [       
+          {
+			"technique_id": "T1053",
+            "variation": 1,
+			"cleanup": "true",
+			"taskName": "Legit Scheduled Task",
+            "taskPath" : "C:\\Windows\\System32\\calc.exe",
+            "host_target_type": 2,
+            "host_target_total": 5
+          }
+        ]
+      }
+    ]
+  }

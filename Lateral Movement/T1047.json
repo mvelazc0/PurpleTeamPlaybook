@@ -7,6 +7,7 @@
         "playbook_sleep": 3,
         "tasks": [       
           {
+			"tactic": "Lateral Movement",			  
             "technique_id": "T1047",
             "variation": 1,
             "command" : "C:\\Windows\\System32\\calc.exe",
@@ -21,6 +22,7 @@
         "playbook_sleep": 3,
         "tasks": [       
           {
+			"tactic": "Lateral Movement",			  
 			"technique_id": "T1047",
 			"variation": 1,
             "command" : "C:\\Windows\\System32\\notepad.exe",
@@ -35,6 +37,7 @@
         "playbook_sleep": 3,
         "tasks": [       
           {
+			"tactic": "Lateral Movement",			 
             "technique_id": "T1047",
             "variation": 2,
             "command" : "C:\\Windows\\System32\\calc.exe",
@@ -49,6 +52,7 @@
         "playbook_sleep": 3,
         "tasks": [       
           {
+			"tactic": "Lateral Movement",
 			"technique_id": "T1047",
 			"variation": 2,
             "command" : "C:\\Windows\\System32\\notepad.exe",

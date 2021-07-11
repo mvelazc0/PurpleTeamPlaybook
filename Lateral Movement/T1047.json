@@ -1,28 +1,56 @@
 {
     "type": "local",
     "playbooks": [
-      {
-        "name": "Execute code remotely using WMI on specified hosts",
+	  {
+        "name": "Execute code remotely using WMI on specified hosts using wmic.exe",
         "enabled": false,
         "playbook_sleep": 3,
         "tasks": [       
           {
             "technique_id": "T1047",
             "variation": 1,
-            "host_target_type": 1,
             "command" : "C:\\Windows\\System32\\calc.exe",
-            "host_targets": ["dc01", "win10-2"]            
+			"host_target_type": 1,
+            "host_targets": ["192.168.1.35"]            
           }
         ]
       },
       {
-        "name": "Execute code remotely using WMI on random hosts",
+        "name": "Execute code remotely using WMI on random hosts using wmic.exe",
         "enabled": false,
         "playbook_sleep": 3,
         "tasks": [       
           {
 			"technique_id": "T1047",
 			"variation": 1,
+            "command" : "C:\\Windows\\System32\\notepad.exe",
+            "host_target_type": 2,
+            "host_target_total": 5
+          }
+        ]
+      },
+      {
+        "name": "Execute code remotely using WMI on specified hosts using .NET",
+        "enabled": false,
+        "playbook_sleep": 3,
+        "tasks": [       
+          {
+            "technique_id": "T1047",
+            "variation": 2,
+            "command" : "C:\\Windows\\System32\\calc.exe",
+			"host_target_type": 1,
+            "host_targets": ["dc01", "win10-2"]            
+          }
+        ]
+      },
+      {
+        "name": "Execute code remotely using WMI on random hosts using .NET",
+        "enabled": false,
+        "playbook_sleep": 3,
+        "tasks": [       
+          {
+			"technique_id": "T1047",
+			"variation": 2,
             "command" : "C:\\Windows\\System32\\notepad.exe",
             "host_target_type": 2,
             "host_target_total": 5

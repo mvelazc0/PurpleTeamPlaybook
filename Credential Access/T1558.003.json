@@ -1,0 +1,52 @@
+{
+    "type": "local",
+    "playbooks": [
+	  {
+        "name": "Kerberoast all users with an SPN using .NET",
+        "enabled": false,
+        "playbook_sleep": 3,
+        "tasks": [       
+          {
+            "technique_id": "T1558.003",
+            "variation": 1
+          }
+        ]
+      },
+	  {
+        "name": "Kerberoast all users with an SPN using .NET with a sleep time",
+        "enabled": false,
+        "playbook_sleep": 3,
+        "tasks": [       
+          {
+            "technique_id": "T1558.003",
+            "variation": 1,
+			"task_sleep": 30
+          }
+        ]
+      },
+	  {
+        "name": "Kerberoast a random subset of users with an SPN using using .NET",
+        "enabled": false,
+        "playbook_sleep": 3,
+        "tasks": [       
+          {
+            "technique_id": "T1558.003",
+            "variation": 2,
+			"user_target_total": 5
+          }
+        ]
+      },
+	  {
+        "name": "Kerberoast sepecific users with an SPN using .NET",
+        "enabled": false,
+        "playbook_sleep": 3,
+        "tasks": [       
+          {
+            "technique_id": "T1558.003",
+            "variation": 3,
+			"user_targets": ["accountName#Spn", "app01#http/intranet"]
+          }
+        ]
+      }
+    ]
+  }

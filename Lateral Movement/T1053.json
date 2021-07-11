@@ -7,6 +7,7 @@
         "playbook_sleep": 3,
         "tasks": [       
           {
+			"tactic": "Lateral Movement",
             "technique_id": "T1053",
             "variation": 1,
 			"cleanup": "true",
@@ -23,6 +24,7 @@
         "playbook_sleep": 3,
         "tasks": [       
           {
+			"tactic": "Lateral Movement",
 			"technique_id": "T1053",
             "variation": 1,
 			"cleanup": "true",
@@ -39,6 +41,7 @@
         "playbook_sleep": 3,
         "tasks": [       
           {
+			"tactic": "Lateral Movement",
 			"technique_id": "T1053",
             "variation": 1,
 			"cleanup": "true",

@@ -1,0 +1,101 @@
+{
+	"type": "remote",
+	"domain": "hacklabz",
+	"username": "purplesharp",
+	"sleep": 5,
+	"playbooks": [
+		{
+			"name": "Active Directory Discovery Simulation Playbook - Command Line",
+			"remote_host": "win10-1",
+			"scout_full_path": "C:\\Windows\\Temp\\Installer.exe",
+			"simulator_relative_path": "AppData\\Local\\Temp\\tmp12345.exe",
+			"enabled": true,
+			"playbook_sleep": 3,
+			"tasks": [
+				{
+					"technique_id": "T1033",
+					"variation": 1,
+					"technique_name": "System User Discovery"
+				},
+				{
+					"technique_id": "T1018",
+					"variation": 1,
+					"technique_name": "Remote System Discovery"
+				},
+				{
+					"technique_id": "T1482",
+					"variation": 1,
+					"technique_name": "Domain Trust Discovery"
+				},
+				{
+					"technique_id": "T1087.001",
+					"variation": 1,
+					"technique_name": "Local Account Discovery"
+				},
+				{
+					"technique_id": "T1069.002",
+					"variation": 1,
+					"technique_name": "Domain Group Discovery"
+				}
+			]
+		},
+		{
+			"name": "Active Directory Discovery Simulation Playbook - Command Line",
+			"remote_host": "win10-2",
+			"scout_full_path": "C:\\Windows\\Temp\\Installer.exe",
+			"simulator_relative_path": "AppData\\Local\\Temp\\tmp12345.exe",
+			"enabled": true,
+			"playbook_sleep": 3,
+			"tasks": [
+				{
+					"technique_id": "T1087.001",
+					"variation": 2,
+					"technique_name": "Local Account Discovery"
+				},
+				{
+					"technique_id": "T1087.002",
+					"variation": 2,
+					"technique_name": "Domain Account Discovery"
+				},
+				{
+					"technique_id": "T1069.002",
+					"variation": 2,
+					"technique_name": "Domain Group Discovery",
+					"groups": [
+						"DB Administration",
+						"Exchange Admins"
+					]
+				},
+				{
+					"technique_id": "T1018",
+					"variation": 2,
+					"technique_name": "Remote System Discovery"
+				}
+			]
+		},
+		{
+			"name": "Active Directory Discovery Simulation Playbook - Command Line",
+			"remote_host": "win10-3",
+			"scout_full_path": "C:\\Windows\\Temp\\Installer.exe",
+			"simulator_relative_path": "AppData\\Local\\Temp\\tmp12345.exe",
+			"enabled": true,
+			"playbook_sleep": 3,
+			"tasks": [
+				{
+					"technique_id": "T1087.002",
+					"variation": 3,
+					"technique_name": "Domain Account Discovery"
+				},
+				{
+					"technique_id": "T1069.002",
+					"variation": 2,
+					"technique_name": "Domain Account Discovery",
+					"groups": [
+						"DB Administration",
+						"Exchange Adm"
+					]
+				}
+			]
+		}
+	]
+}

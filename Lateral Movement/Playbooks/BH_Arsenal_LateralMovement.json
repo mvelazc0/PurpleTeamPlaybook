@@ -1,0 +1,94 @@
+{
+	"type": "remote",
+	"domain": "hacklabz",
+	"username": "psharp",
+	"sleep": 0,
+	"playbooks": [
+		{
+			"name": "Active Directory Lateral Movement Playbook - Service Creation and Schedule Task",
+			"remote_host": "win10-2",
+			"scout_full_path": "C:\\Windows\\Temp\\Installer.exe",
+			"simulator_relative_path": "AppData\\Local\\Temp\\tmp12345.exe",
+			"enabled": true,
+			"playbook_sleep": 3,
+			"tasks": [
+				{
+					"technique_name": "Create and start a remote Schedule Task on win10-2 using schtasks.exe",
+					"tactic": "Lateral Movement",
+					"technique_id": "T1053",
+					"variation": 1,
+					"cleanup": "true",
+					"taskName": "Legit Scheduled Task",
+					"taskPath": "C:\\Windows\\System32\\rundll32.exe",
+					"host_target_type": 1,
+					"host_targets": [
+						"win10-4"
+					]
+				},
+				{
+					"technique_name": "Create and start a remote Service on win10-3 using CreateService",
+					"technique_id": "T1021.002",
+					"variation": 2,
+					"cleanup": true,
+					"serviceName": "Legit Updater Updater",
+					"servicePath": "C:\\Windows\\System32\\mshta.exe",
+					"host_target_type": 1,
+					"host_targets": [
+						"win10-3"
+					]
+				}
+			]
+		},
+		{
+			"name": "Active Directory Lateral Movement Playbook - WMI and WinRM",
+			"remote_host": "win10-4",
+			"scout_full_path": "C:\\Windows\\Temp\\Installer.exe",
+			"simulator_relative_path": "AppData\\Local\\Temp\\tmp12345.exe",
+			"enabled": true,
+			"playbook_sleep": 3,
+			"tasks": [
+				{
+					"tactic": "Lateral Movement",
+					"technique_name": "Execute code remotely using WMI on 3 random hosts using .NET",
+					"technique_id": "T1047",
+					"variation": 2,
+					"cleanup": true,
+					"command": "C:\\Windows\\System32\\msiexec.exe",
+					"host_target_type": 2,
+					"host_target_total": 3
+				},
+				{
+					"technique_name": "Execute code remotely using WinRM on random hosts using .NET",
+					"technique_id": "T1021.006",
+					"variation": 2,
+					"cleanup": "true",
+					"command": "C:\\Windows\\System32\\regsvr32.exe",
+					"host_target_type": 2,
+					"host_target_total": 3
+				}
+			]
+		},
+		{
+			"name": "Active Directory Lateral Movement Playbook - Modify Service",
+			"remote_host": "win10-4",
+			"scout_full_path": "C:\\Windows\\Temp\\Installer.exe",
+			"simulator_relative_path": "AppData\\Local\\Temp\\tmp12345.exe",
+			"enabled": true,
+			"playbook_sleep": 3,
+			"tasks": [
+				{
+					"technique_name": "Modify and start a remote Service on win10-3 using ChangeServiceConfig",
+					"technique_id": "T1021.002",
+					"variation": 3,
+					"cleanup": true,
+					"serviceName": "PurpleSharp Service",
+					"servicePath": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+					"host_target_type": 1,
+					"host_targets": [
+						"win2019-1"
+					]
+				}
+			]
+		}
+	]
+}

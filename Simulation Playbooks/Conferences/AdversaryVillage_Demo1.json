@@ -1,0 +1,95 @@
+{
+	"type": "remote",
+	"domain": "hacklabz",
+	"username": "psharp",
+	"sleep": 0,
+	"playbooks": [
+		{
+			"name": "Adversary Simulation Playbook 1",
+			"remote_host": "win10-1",
+			"scout_full_path": "C:\\Windows\\Temp\\Installer.exe",
+			"simulator_relative_path": "AppData\\Local\\Temp\\tmp12345.exe",
+			"enabled": true,
+			"playbook_sleep": 3,
+			"tasks": [
+				{
+					"technique_id": "T1033",
+					"variation": 1,
+					"technique_name": "System User Discovery - Cmdline"
+				},
+				{
+					"technique_id": "T1087.001",
+					"variation": 1,
+					"technique_name": "Local Account Discovery - Cmdline"
+				},
+				{
+					"technique_id": "T1069.001",
+					"variation": 1,
+					"technique_name": "Local Group Discovery - Cmdline"
+				},
+				{
+					"technique_id": "T1018",
+					"variation": 1,
+					"technique_name": "Remote System Discovery - Cmdline"
+				},
+				{
+					"technique_id": "T1558.003",
+					"variation": 1,
+					"task_sleep": 10,
+					"technique_name": "Kerberoasting: Get ticket for all SPNs"
+				}
+			]
+		},
+		{
+			"name": "Adversary Simulation Playbook 2",
+			"remote_host": "win10-2",
+			"scout_full_path": "C:\\Windows\\Temp\\Installer.exe",
+			"simulator_relative_path": "AppData\\Local\\Temp\\xy.exe",
+			"enabled": true,
+			"playbook_sleep": 3,
+			"tasks": [
+				{
+					"technique_id": "T1087.002",
+					"variation": 2,
+					"technique_name": "Domain Account Discovery - PowerShell"
+				},
+				{
+					"technique_id": "T1069.002",
+					"variation": 2,
+					"technique_name": "Domain Group Discovery - PowerShell",
+					"groups": [
+						"Domain Admins",
+						"Exchange Admins"
+					]
+				},
+				{
+					"technique_id": "T1482",
+					"variation": 2,
+					"technique_name": "Domain Trust Discovery - PowerShell"
+				},
+				{
+					"technique_id": "T1018",
+					"variation": 2,
+					"technique_name": "Remote System Discovery - PowerShell"
+				},
+				{
+					"technique_id": "T1110.003",
+					"spray_password": "Summer2021",
+					"variation": 1,
+					"user_target_type": 2,
+					"user_target_total": 20
+				},
+				{
+					"technique_id": "T1110.003",
+					"spray_password": "Summer2021",
+					"variation": 2,
+					"protocol": "NTLM",
+					"user_target_type": 2,
+					"user_target_total": 20,
+					"host_target_type": 2,
+					"host_target_total": 1
+				}
+			]
+		}
+	]
+}

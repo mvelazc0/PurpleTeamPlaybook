@@ -1,4 +1,4 @@
-# Active Directory Purple Team Playbook
+# The Purple Team Playbook
 
 A library of Purple Team Playbooks designed to be run with PurpleSharp.
 

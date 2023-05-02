@@ -3,7 +3,7 @@
   "sleep": 5,
   "playbooks": [
     {
-      "name": "Conti Ransomware Emulation - Executing code with LOLBAS",
+      "name": "Conti Ransomware Emulation - Defense Evasion - Executing code with LOLBAS",
       "enabled": true,
       "task_sleep": 3,
       "tasks": [
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "name": "Conti Ransomware Emulation - Disable AV",
+      "name": "Conti Ransomware Emulation - Defense Evasion - Disable AV",
       "enabled": true,
       "task_sleep": 3,
       "tasks": [
@@ -38,7 +38,7 @@
       ]
     },
     {
-      "name": "Conti Ransomware Emulation - Inject shellcode to explorer.exe ",
+      "name": "Conti Ransomware Emulation - Defense Evasion - Inject shellcode to explorer.exe ",
       "enabled": true,
       "task_sleep": 3,
       "tasks": [

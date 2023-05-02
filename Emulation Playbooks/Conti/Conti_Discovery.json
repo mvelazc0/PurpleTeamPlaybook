@@ -3,7 +3,7 @@
     "sleep": 5,
     "playbooks": [
       {
-        "name": "Conti Ransomware Emulation - Local Discovery",
+        "name": "Conti Ransomware Emulation - Discovery - Local Discovery",
         "enabled": false,
         "pbsleep": 0,
         "tasks": [
@@ -44,7 +44,7 @@
         ]
       },
       {
-        "name": "Conti Ransomware Emulation - Domain User Discovery",
+        "name": "Conti Ransomware Emulation - Discovery - Domain User Discovery",
         "enabled": false,
         "pbsleep": 0,
         "tasks": [
@@ -79,7 +79,7 @@
         ]
       },
       {
-        "name": "Conti Ransomware Emulation - Domain Computer Discovery",
+        "name": "Conti Ransomware Emulation - Discovery -  Domain Computer Discovery",
         "enabled": false,
         "pbsleep": 0,
         "tasks": [
@@ -124,7 +124,7 @@
         ]
       },
       {
-        "name": "Conti Ransomware Emulation - Download and leverage adfind",
+        "name": "Conti Ransomware Emulation - Discovery -  Download and leverage adfind",
         "enabled": false,
         "task_sleep": 3,
         "tasks": [

